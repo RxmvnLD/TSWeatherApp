@@ -1,3 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import-normalize;
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  @apply font-poppins bg-gradient-to-b from-[#0a192f] to-[#03070e] text-white text-base scroll-smooth w-full;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
