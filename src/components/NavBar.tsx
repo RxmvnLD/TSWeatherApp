@@ -1,8 +1,10 @@
 import { TfiWorld } from "react-icons/tfi";
 import logo from "../assets/images/logo.webp";
 import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const NavBar = () => {
+  const { isAuthenticated } = useAuth0();
   return (
     <div className="sticky top-0 z-50 w-full">
       <nav className="flex flex-row py-3 lg:py-5 px-5 lg:px-16 w-full bg-[#0a192f]">
@@ -24,9 +26,15 @@ const NavBar = () => {
             <li className="px-6 py-3 cursor-pointer">SOLUTIONS</li>
             <li className="px-6 py-3 cursor-pointer">CLIENTS</li>
             <li className="px-6 py-3 cursor-pointer">COMPANY</li>
-            <li className="bg-teal-300 text-[#0a192f] px-6 py-3 cursor-pointer">
-              LOGIN
-            </li>
+            {isAuthenticated ? (
+              <li className="bg-teal-300 text-[#0a192f] px-6 py-3 cursor-pointer">
+                <Link to="/account">ACCOUNT</Link>
+              </li>
+            ) : (
+              <li className="bg-teal-300 text-[#0a192f] px-6 py-3 cursor-pointer">
+                <Link to="/login">LOGIN</Link>
+              </li>
+            )}
             <li className="px-6 py-3 flex flex-row items-center gap-3 cursor-pointer">
               {" "}
               <TfiWorld className="text-lg font-bold cursor-pointer" />
