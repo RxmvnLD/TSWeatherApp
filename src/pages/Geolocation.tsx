@@ -5,12 +5,12 @@ import Loader from "../components/Loader";
 import useGetWeather from "../hooks/useGetWeather";
 import WeatherInfo from "../components/WeatherInfo";
 
-type Cords = {
+export type Cords = {
   latitude: number;
   longitude: number;
 };
 
-const cordsInitState: Cords = {
+export const cordsInitState: Cords = {
   latitude: 19.7023,
   longitude: -101.1928,
 };

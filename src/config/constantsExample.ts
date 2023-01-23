@@ -1,7 +1,7 @@
 export const NASA_KEY: string = "";
 export const OPEN_WEATHER_KEY: string = "";
-export const MAPBOX_GEOCODING_KEY: string =
-  "";
+export const MAPBOX_GEOCODING_KEY: string ="";
+export const PEXELS_KEY: string = "";
 
 //URLs to use as background with tailwind;
 //Landing Page
