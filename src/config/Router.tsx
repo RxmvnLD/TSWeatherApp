@@ -7,6 +7,9 @@ import Login from "../pages/Login";
 import Account from "../pages/Account";
 import { useAuth0 } from "@auth0/auth0-react";
 import Home from "../pages/Home";
+import Geolocation from "../pages/Geolocation";
+import City from "../pages/City";
+import ProtectedRoutes from "../components/ProtectedRoutes";
 
 const Router = () => {
   const { isAuthenticated } = useAuth0();
@@ -17,7 +20,11 @@ const Router = () => {
         <Route path="*" element={<NotFound />} />
         <Route path="/" element={isAuthenticated ? <Home /> : <Landing />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/account" element={<Account />} />
+        <Route element={<ProtectedRoutes isAuth={isAuthenticated} />}>
+          <Route path="/account" element={<Account />} />
+          <Route path="/geolocation" element={<Geolocation />} />
+          <Route path="/city" element={<City />} />
+        </Route>
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -16,24 +16,35 @@ const NavBar = () => {
           />
         </Link>
         <div className="lg:hidden self-center justify-self-end ml-auto ">
-          hamburger
+          Burguer menu
         </div>
         <div className="justify-self-end ml-auto font-bold text-sm">
           <ul className=" flex-row gap-2 hidden lg:flex">
             <li className="px-6 py-3 cursor-pointer">
               <Link to="/">HOME</Link>
             </li>
-            <li className="px-6 py-3 cursor-pointer">SOLUTIONS</li>
-            <li className="px-6 py-3 cursor-pointer">CLIENTS</li>
-            <li className="px-6 py-3 cursor-pointer">COMPANY</li>
+
             {isAuthenticated ? (
-              <li className="bg-teal-300 text-[#0a192f] px-6 py-3 cursor-pointer">
-                <Link to="/account">ACCOUNT</Link>
-              </li>
+              <>
+                <li className="px-6 py-3 cursor-pointer">
+                  <Link to="/geolocation">GEOLOCATION</Link>
+                </li>
+                <li className="px-6 py-3 cursor-pointer">
+                  <Link to="/city">SEARCH CITY</Link>
+                </li>
+                <li className="bg-teal-300 text-[#0a192f] px-6 py-3 cursor-pointer">
+                  <Link to="/account">ACCOUNT</Link>
+                </li>
+              </>
             ) : (
-              <li className="bg-teal-300 text-[#0a192f] px-6 py-3 cursor-pointer">
-                <Link to="/login">LOGIN</Link>
-              </li>
+              <>
+                <li className="px-6 py-3 cursor-pointer">SOLUTIONS</li>
+                <li className="px-6 py-3 cursor-pointer">CLIENTS</li>
+                <li className="px-6 py-3 cursor-pointer">COMPANY</li>
+                <li className="bg-teal-300 text-[#0a192f] px-6 py-3 cursor-pointer">
+                  <Link to="/login">LOGIN</Link>
+                </li>
+              </>
             )}
             <li className="px-6 py-3 flex flex-row items-center gap-3 cursor-pointer">
               {" "}

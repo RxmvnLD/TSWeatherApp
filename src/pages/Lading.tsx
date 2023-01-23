@@ -1,13 +1,9 @@
 import useGetBackground from "../hooks/useGetBackground";
 import staff from "../assets/images/staff.jpg";
 import phone from "../assets/images/phone.jpg";
+import { ABOUT_URL, GET_IN_TOUCH_URL } from "../config/constants";
 import { SiNasa } from "react-icons/si";
 import { Link } from "react-router-dom";
-
-const aboutBgUrl: string =
-    "https://canteradigital.io/wp-content/uploads/2022/07/dark-pattern-bg.webp",
-  gerInTouchBgUrl: string =
-    "https://canteradigital.io/wp-content/uploads/2022/07/v748-toon-103-1-scaled.webp";
 
 const Landing = () => {
   const { background } = useGetBackground();
@@ -36,8 +32,8 @@ const Landing = () => {
           {" "}
           Try it out!
         </Link>
-        {/* //Solutions section */}
       </section>
+      {/* //Solutions section */}
       <section className="h-full pt-20 lg:pt-10 bg-white text-center flex flex-col items-center gap-10 text-blue-950">
         <div className="text-3xl lg:text-4xl lg:mx-20 font-extrabold w-4/5 lg:w-3/5">
           Deliver the Best Experience to Your Clients, With Benefits of
@@ -70,7 +66,7 @@ const Landing = () => {
       {/* //About section */}
       <section
         className="text-center flex flex-col items-center justify-around py-20 lg:py-28 lg:px-46 gap-10 bg-no-repeat bg-cover bg-center"
-        style={{ backgroundImage: `url(${aboutBgUrl})` }}
+        style={{ backgroundImage: `url(${ABOUT_URL})` }}
       >
         <div className="text-3xl lg:text-4xl font-extrabold">
           Learn More About Cantera Digital
@@ -118,7 +114,7 @@ const Landing = () => {
       {/* //Get in touch section */}
       <section
         className="py-16 lg:py-28 lg:px-72 bg-no-repeat bg-cover bg-center text-blue-950"
-        style={{ backgroundImage: `url(${gerInTouchBgUrl})` }}
+        style={{ backgroundImage: `url(${GET_IN_TOUCH_URL})` }}
       >
         <div className="text-center lg:w-1/2">
           <p className="text-3xl lg:text-4xl font-extrabold">GET IN TOUCH!</p>
