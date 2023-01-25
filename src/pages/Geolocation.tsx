@@ -20,7 +20,7 @@ const Geolocation = () => {
     <main className="flex flex-col items-center py-10 gap-10">
       {/*Input form*/}
       <GeolocationForm sendDataToParent={getDataFromForm} />
-      {error?.msg && <p className="text-red-500">{error.msg}</p>}
+      {error?.message && <p className="text-red-500">{error.message}</p>}
       {loading ? (
         <Loader />
       ) : (

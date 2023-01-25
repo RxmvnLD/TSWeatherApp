@@ -25,7 +25,6 @@ const useGetBackground = () => {
       setBackground(res);
       setLoading(false);
     } catch (error: unknown) {
-      console.log(error);
       setError(error);
     }
   };

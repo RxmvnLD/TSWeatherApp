@@ -1,4 +1,4 @@
-import { MouseEventHandler, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { BsSearch } from "react-icons/bs";
 import { Coordinates } from "../config/types";
@@ -34,7 +34,7 @@ const SearchCityForm = ({ sendDataToParent }: Props) => {
     setSearchedResults(searchResults);
 
   return (
-    <section>
+    <section className="z-10">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="text-black flex flex-row items-center "
@@ -61,6 +61,7 @@ const SearchCityForm = ({ sendDataToParent }: Props) => {
       >
         {searchedResults?.map((res) => (
           <div
+            key={res.id}
             className="hover:bg-gray-200 p-2 cursor-pointer"
             onClick={() => {
               const cords: Coordinates = {

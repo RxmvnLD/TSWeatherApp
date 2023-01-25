@@ -11,7 +11,6 @@ const useGetCityPicture = ({ cityName }: Props) => {
   const [cityPicture, setCityPicture] = useState<pexelsPhoto>();
 
   const getCityPicture = async () => {
-    console.log(cityName);
     try {
       const res = await axiosGet(
         `https://api.pexels.com/v1/search?query=${cityName}&size=small&per_page=10`,
@@ -19,11 +18,8 @@ const useGetCityPicture = ({ cityName }: Props) => {
           headers: { Authorization: PEXELS_KEY },
         }
       );
-      console.log(res);
       setCityPicture(res.photos[0]);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {

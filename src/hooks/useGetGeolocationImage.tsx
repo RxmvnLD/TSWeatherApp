@@ -19,27 +19,31 @@ const geolocationImageInitState: GeolocationImage = {
 };
 
 const GeolocationErrorInitState: GeolocationError = {
-  msg: "",
-  service_version: "",
+  /* msg: "",
+  service_version: "", */
+  message: "",
+  name: "",
 };
 
 const useGetGeolocationImage = ({ latitude, longitude }: Coordinates) => {
   const [geolocationImage, setGeolocationImage] = useState<GeolocationImage>(
       geolocationImageInitState
     ),
-    [error, setError] = useState<GeolocationError>(GeolocationErrorInitState),
+    [error, setError] = useState<Error>(GeolocationErrorInitState),
     [loading, setLoading] = useState<boolean>(true);
 
   async function getImage(): Promise<void> {
     try {
       const res = await axiosGet(
-        `https://api.nasa.gov/planetary/earth/assets?lon=${longitude}&lat=${latitude}&date=2022-01-01&dim=0.15&api_key=${NASA_KEY}`
+        `https://api.nasa.gov/planetary/earth/assets?lat=${latitude}&lon=${longitude}&date=2022-01-01&dim=0.15&api_key=${NASA_KEY}`
       );
       setLoading(false);
       setGeolocationImage(res);
       setError(GeolocationErrorInitState);
     } catch (error) {
-      setError(error.data);
+      if (error instanceof Error) {
+        setError(error);
+      }
     }
   }
   useEffect(() => {

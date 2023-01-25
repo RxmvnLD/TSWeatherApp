@@ -8,6 +8,10 @@
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
+  "yarn.build": {
+    "input": "src",
+    "output": "build"
+  },
   "dependencies": {
     "@auth0/auth0-react": "^2.0.0",
     "axios": "^1.2.3",
@@ -17,6 +21,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.42.1",
     "react-icons": "^4.7.1",
+    "react-map-gl": "^7.0.21",
     "react-router-dom": "^6.6.2"
   },
   "devDependencies": {

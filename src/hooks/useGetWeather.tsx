@@ -36,21 +36,28 @@ const WeatherInitState: Weather = {
 
 const useGetWeather = ({ latitude, longitude }: Coordinates) => {
   const [weather, setWeather] = useState<Weather>(WeatherInitState);
+  const [weatherIconURL, setWeatherIconURL] = useState<string>("");
   const getWeather = async () => {
     try {
       const res = await axiosGet(
         `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${OPEN_WEATHER_KEY}&lang=en&units=metric`
       );
       setWeather(res);
+      setTimeout(() => {
+        setWeatherIconURL(
+          `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`
+        );
+      }, 400);
     } catch (error) {
       console.log(error);
     }
   };
+
   useEffect(() => {
     getWeather();
   }, [latitude, longitude]);
 
-  return { weather };
+  return { weather, weatherIconURL };
 };
 
 export default useGetWeather;
