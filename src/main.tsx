@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import Router from "./config/Router";
 import { Auth0Provider } from "@auth0/auth0-react";
 import "./index.css";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <Auth0Provider

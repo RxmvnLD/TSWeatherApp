@@ -12,7 +12,11 @@ const axiosGet = async (url: string, headers?:axiosHeaders) => {
     const res = await axiosInstance.get(url, headers);
     return res.data;
   } catch (error) {
-    throw error.response;
+    if (error instanceof Error) {
+        console.log(error.message);
+        throw error.message;
+        
+    }
   }
 };
 

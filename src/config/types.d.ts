@@ -22,8 +22,10 @@ export type GeolocationImage = {
   url: string;
 };
 export type GeolocationError = {
-  msg: string;
-  service_version: string;
+  /* msg: string;
+  service_version: string; */
+  message:string;
+  name:string;
 };
 export type Weather = {
   base: string;
@@ -107,4 +109,10 @@ export type pexelsPhotosResponse={
     per_page:number;
     photos:pexelsPhoto[];
     next_page:string;
+}
+
+export type ViewState={
+    latitude:number;
+    longitude:number;
+    zoom:number;
 }
