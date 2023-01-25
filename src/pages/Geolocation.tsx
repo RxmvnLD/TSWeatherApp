@@ -4,22 +4,15 @@ import GeolocationForm from "../components/GeolocationForm";
 import Loader from "../components/Loader";
 import useGetWeather from "../hooks/useGetWeather";
 import WeatherInfo from "../components/WeatherInfo";
+import { Coordinates } from "../config/types";
+import { MORELIA_CORDS } from "../config/constants";
 
-export type Cords = {
-  latitude: number;
-  longitude: number;
-};
-
-export const cordsInitState: Cords = {
-  latitude: 19.7023,
-  longitude: -101.1928,
-};
 const Geolocation = () => {
-  const [cords, setCords] = useState<Cords>(cordsInitState);
+  const [cords, setCords] = useState<Coordinates>(MORELIA_CORDS);
   const { geolocationImage, loading, error } = useGetGeolocationImage(cords);
   const { weather } = useGetWeather(cords);
 
-  function getDataFromForm(formCords: Cords) {
+  function getDataFromForm(formCords: Coordinates) {
     setCords(formCords);
   }
 

@@ -1,12 +1,17 @@
 import axios from "axios";
+import { PEXELS_KEY} from "../config/constants";
 
 const axiosInstance = axios.create({});
 
-const axiosGet = async (url: string) => {
+type axiosHeaders={
+    headers: {"Authorization": string}
+}
+
+const axiosGet = async (url: string, headers?:axiosHeaders) => {
   try {
-    const res = await axiosInstance.get(url);
+    const res = await axiosInstance.get(url, headers);
     return res.data;
-  } catch (error: unknown) {
+  } catch (error) {
     throw error.response;
   }
 };

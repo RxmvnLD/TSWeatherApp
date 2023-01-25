@@ -1,18 +1,9 @@
 import { useEffect, useState } from "react";
 import { axiosGet } from "../helpers/axiosInstance";
 import { APOD_URL } from "../config";
+import { BackgroundData } from "../config/types";
 
-type BackgroundData = {
-  date: string;
-  explanation: string;
-  hdurl: string;
-  media_type: string;
-  service_version: string;
-  title: string;
-  url: string;
-};
-
-const backgroundDataInitState = {
+const backgroundDataInitState: BackgroundData = {
   date: "",
   explanation: "",
   hdurl: "",
