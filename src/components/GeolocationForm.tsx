@@ -1,17 +1,14 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-
-interface Cords {
-  latitude: number;
-  longitude: number;
-}
+import { Coordinates } from "../config/types";
+import { MORELIA_CORDS } from "../config/constants";
 
 interface Props {
-  sendDataToParent: (data: Cords | any) => void;
+  sendDataToParent: (data: Coordinates | any) => void;
 }
 
 const GeolocationForm = ({ sendDataToParent }: Props) => {
-  const { register, handleSubmit } = useForm<Cords>();
-  const onSubmit: SubmitHandler<Cords> = (data) => {
+  const { register, handleSubmit } = useForm<Coordinates>();
+  const onSubmit: SubmitHandler<Coordinates> = (data) => {
     sendDataToParent(data);
   };
   return (

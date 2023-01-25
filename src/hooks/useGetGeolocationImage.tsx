@@ -1,18 +1,13 @@
 import { useState, useEffect } from "react";
 import { axiosGet } from "../helpers/axiosInstance";
 import { NASA_KEY } from "../config/constants";
+import {
+  Coordinates,
+  GeolocationImage,
+  GeolocationError,
+} from "../config/types";
 
-type GeolocationImage = {
-  date: string;
-  id: string;
-  resource: {
-    dataset: string;
-    planet: string;
-  };
-  servoce_version: string;
-  url: string;
-};
-const geolocationImageInitState = {
+const geolocationImageInitState: GeolocationImage = {
   date: "",
   id: "",
   resource: {
@@ -23,24 +18,12 @@ const geolocationImageInitState = {
   url: "",
 };
 
-type GeolocationError = {
-  msg: string;
-  service_version: string;
-};
-
-const GeolocationErrorInitState = {
+const GeolocationErrorInitState: GeolocationError = {
   msg: "",
   service_version: "",
 };
-interface useGetGeolocationImageProps {
-  latitude: number;
-  longitude: number;
-}
 
-const useGetGeolocationImage = ({
-  latitude,
-  longitude,
-}: useGetGeolocationImageProps) => {
+const useGetGeolocationImage = ({ latitude, longitude }: Coordinates) => {
   const [geolocationImage, setGeolocationImage] = useState<GeolocationImage>(
       geolocationImageInitState
     ),

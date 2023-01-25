@@ -1,42 +1,7 @@
 import { useState, useEffect } from "react";
 import { axiosGet } from "../helpers/axiosInstance";
 import { OPEN_WEATHER_KEY } from "../config/constants";
-
-interface useGetWeatherProps {
-  latitude: number;
-  longitude: number;
-}
-
-export type Weather = {
-  base: string;
-  clouds: { all: number };
-  cod: number;
-  coord: { lon: number; lat: number };
-  dt: number;
-  id: number;
-  main: {
-    feels_like: number;
-    grnd_level: number;
-    humidity: number;
-    pressure: number;
-    sea_level: number;
-    temp: number;
-    temp_max: number;
-    temp_min: number;
-  };
-  name: string;
-  sys: {
-    country: string;
-    id: number;
-    sunrise: number;
-    sunset: number;
-    type: number;
-  };
-  timezone: number;
-  visibility: number;
-  weather: [{ description: string; icon: string; id: number; main: string }];
-  wind: { deg: number; gust: number; speed: number };
-};
+import { Coordinates, Weather } from "../config/types";
 
 const WeatherInitState: Weather = {
   base: "",
@@ -69,7 +34,7 @@ const WeatherInitState: Weather = {
   wind: { deg: 0, gust: 0, speed: 0 },
 };
 
-const useGetWeather = ({ latitude, longitude }: useGetWeatherProps) => {
+const useGetWeather = ({ latitude, longitude }: Coordinates) => {
   const [weather, setWeather] = useState<Weather>(WeatherInitState);
   const getWeather = async () => {
     try {
