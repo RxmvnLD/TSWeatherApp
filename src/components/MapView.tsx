@@ -45,10 +45,6 @@ const MapView2 = ({ sendDataToParent }: Props) => {
           onMove={(evt) => setViewState(evt.viewState)}
           mapStyle="mapbox://styles/mapbox/streets-v12"
         >
-          <GeolocateControl
-            positionOptions={{ enableHighAccuracy: true }}
-            trackUserLocation={true}
-          />
           <Marker
             latitude={viewState.latitude}
             longitude={viewState.longitude}
