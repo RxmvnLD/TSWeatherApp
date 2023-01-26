@@ -5,7 +5,7 @@ import { MORELIA_CORDS } from "../config/constants";
 import { ViewState } from "../config/types";
 import SearchCityForm from "./SearchCityForm";
 import marker from "../assets/images/marker.png";
-
+import { MAPBOX_GEOCODING_KEY } from "../config/constants";
 const initViewState = {
   latitude: MORELIA_CORDS.latitude,
   longitude: MORELIA_CORDS.longitude,
@@ -35,12 +35,14 @@ const MapView2 = ({ sendDataToParent }: Props) => {
       <div className="h-[500px] lg:w-[100vh] lg:h[100vh] ">
         <div className="absolute p-3 flex flex-col gap-3 lg:w-1/6">
           <div className="bg-gray-800/75 px-2 py-3 rounded-sm z-10 text-xs">
-            Latitude: {viewState.latitude} | Longitude: {viewState.longitude}{" "}
-            <br /> Zoom: {viewState.zoom}
+            Latitude: {viewState.latitude.toFixed(4)} | Longitude:{" "}
+            {viewState.longitude.toFixed(4)} <br /> Zoom:{" "}
+            {viewState.zoom.toFixed(2)}
           </div>
           <SearchCityForm sendDataToParent={getDataFromForm} />
         </div>
         <Map
+          mapboxAccessToken={MAPBOX_GEOCODING_KEY}
           {...viewState}
           onMove={(evt) => setViewState(evt.viewState)}
           mapStyle="mapbox://styles/mapbox/streets-v12"
