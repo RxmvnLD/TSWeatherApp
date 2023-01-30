@@ -30,8 +30,9 @@ const SearchCityForm = ({ sendDataToParent }: Props) => {
     setSearchedResults(searchResults);
   }, [searchResults]);
 
-  const onSubmit: SubmitHandler<Inputs> = () =>
+  const onSubmit: SubmitHandler<Inputs> = () => {
     setSearchedResults(searchResults);
+  };
 
   return (
     <section className="z-10">

@@ -5,7 +5,6 @@ import MapView from "../components/MapView";
 import { Coordinates } from "../config/types";
 import { MORELIA_CORDS } from "../config/constants";
 import useGetCityPicture from "../hooks/useGetCityPicture";
-import MapView2 from "../components/MapView";
 
 const SearchCity = () => {
   const [cords, setCords] = useState<Coordinates>(MORELIA_CORDS),
@@ -25,7 +24,7 @@ const SearchCity = () => {
     <main className="flex flex-col items-center py-10 gap-10">
       <div className="flex flex-col lg:flex-row gap-20 w-full justify-center h-full mb-20">
         {/*Mapbox Map*/}
-        <MapView2 sendDataToParent={getDataFromMap} />
+        <MapView sendDataToParent={getDataFromMap} />
         {/*Weather info*/}
         <WeatherInfo
           data={weather}
