@@ -116,3 +116,7 @@ export type ViewState={
     longitude:number;
     zoom:number;
 }
+export type VisitedLocation={
+    cords:Coordinates;
+    view:string;
+}

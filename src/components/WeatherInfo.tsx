@@ -10,15 +10,15 @@ const WeatherInfo = ({ data, bgURL, icon }: WeatherInfoProps) => {
   useEffect(() => {}, [data]);
   return (
     <section
-      className="w-full lg:w-1/4 flex flex-col py-5 bg-no-repeat bg-cover bg-center"
+      className="w-full lg:w-1/4 flex flex-col py-32 lg:py-5 bg-no-repeat bg-cover bg-center"
       style={{ backgroundImage: `url(${bgURL})` }}
     >
       <div className="self-center flex flex-col justify-center bg-gray-600/70 p-3 rounded-md">
-        <div className="flex flex-row gap-5">
-          <h1 className="text-2xl font-semibold">
+        <div className="flex flex-row gap-5 items-center">
+          <h1 className="text-lg lg:text-2xl font-semibold">
             {data.name}, {data.sys.country}{" "}
           </h1>
-          <h2 className="text-xl">
+          <h2 className="text-lg lg:text-xl self-end pt-1 lg:pt-2">
             {" "}
             {data.main.temp} °C
             {icon && (

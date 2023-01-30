@@ -16,7 +16,7 @@ interface Props {
   sendDataToParent: (data: Coordinates | any) => void;
 }
 
-const MapView2 = ({ sendDataToParent }: Props) => {
+const MapView = ({ sendDataToParent }: Props) => {
   const [viewState, setViewState] = useState<ViewState>(initViewState);
 
   function getDataFromForm(centerCords: Coordinates) {
@@ -60,4 +60,4 @@ const MapView2 = ({ sendDataToParent }: Props) => {
   );
 };
 
-export default MapView2;
+export default MapView;

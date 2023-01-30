@@ -28,7 +28,7 @@ const Footer = () => {
             <h5 className="text-gray-400 text-sm font-semibold mb-5 lg:mb-7">
               Follow us
             </h5>
-            <div className="mb-10 flex flex-row gap-10">
+            <div className="mb-10 flex flex-row gap-8">
               <a href="https://www.facebook.com/canteradigital" target="_blank">
                 Facebook
               </a>
