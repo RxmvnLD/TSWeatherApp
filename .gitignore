@@ -25,3 +25,4 @@ dist-ssr
 config/constants.js
 constants.*
 .firebase
+vite.config.ts.timestamp-1675275886747.mjs

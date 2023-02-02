@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
-import Map, { GeolocateControl, Marker } from "react-map-gl";
+import { useEffect, useState, useMemo } from "react";
+import Map, { Marker } from "react-map-gl";
 import { Coordinates } from "../config/types";
 import { MORELIA_CORDS } from "../config/constants";
 import { ViewState } from "../config/types";
 import SearchCityForm from "./SearchCityForm";
 import marker from "../assets/images/marker.png";
 import { MAPBOX_GEOCODING_KEY } from "../config/constants";
+import useDebounce from "../hooks/useDebounce";
 const initViewState = {
   latitude: MORELIA_CORDS.latitude,
   longitude: MORELIA_CORDS.longitude,
@@ -18,6 +19,7 @@ interface Props {
 
 const MapView = ({ sendDataToParent }: Props) => {
   const [viewState, setViewState] = useState<ViewState>(initViewState);
+  const debouncedSendDataToParent = useDebounce(sendDataToParent, 800);
 
   function getDataFromForm(centerCords: Coordinates) {
     setViewState({
@@ -27,7 +29,7 @@ const MapView = ({ sendDataToParent }: Props) => {
     });
   }
   useEffect(() => {
-    sendDataToParent(viewState);
+    debouncedSendDataToParent(viewState);
   }, [viewState]);
 
   return (

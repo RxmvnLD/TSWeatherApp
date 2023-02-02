@@ -4,7 +4,6 @@ import { BsSearch } from "react-icons/bs";
 import { Coordinates } from "../config/types";
 import useGetForwardGeocoding from "../hooks/useGetForwardGeocoding";
 import { SearchResult } from "../config/types";
-
 type Inputs = {
   citySearch: string;
 };
