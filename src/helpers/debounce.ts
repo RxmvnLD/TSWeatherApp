@@ -3,13 +3,13 @@
 La primera función es la que se va a ejecutar y
 la segunda es la que va a cancelar la ejecución
 */
-export default function debounce<A = unknown, R = void>(
-  func: (args: A) => R,
+export default function debounce<A extends any[], R = void>(
+  func: (...args: A) => R,
   delay: number = 1000
-): [(args: A) => Promise<R>, () => void] {
+): [(...args: A) => Promise<R>, () => void] {
   let timer: ReturnType<typeof setTimeout>;
 
-  const debouncedFunc = (args: A): Promise<R> => {
+  const debouncedFunc = (...args: A): Promise<R> => {
     return new Promise((resolve) => {
       //Si ya existe un timer(llamada previa), cancelamos la ejecución
       if (timer) {
@@ -17,7 +17,7 @@ export default function debounce<A = unknown, R = void>(
       }
       //Cuando termina el delay ejecutamos la función
       timer = setTimeout(() => {
-        resolve(func(args));
+        resolve(func(...args));
       }, delay);
     });
   };
