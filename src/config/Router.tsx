@@ -9,7 +9,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Home from "../pages/Home";
 import Geolocation from "../pages/Geolocation";
 import SearchCity from "../pages/SearchCity";
-import SearchHistory from "../pages/SearchHistory";
 import ProtectedRoutes from "../components/ProtectedRoutes";
 
 const Router = () => {
